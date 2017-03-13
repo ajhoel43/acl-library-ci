@@ -21,7 +21,6 @@ class Myacl
 		$this->CI->load->helper(array('url', 'language'));
 		$this->CI->lang->load('en', 'english');
 		$this->loadDB();
-		$this->getMySession();
 	}
 
 	public function getMySession() {
@@ -51,6 +50,7 @@ class Myacl
 	}
 
 	public function operationGranted($class, $operationname = '', $func = '') {
+		$this->getMySession();
 		$isAllGranted = $this->isAllGranted();
 
 		if($isAllGranted === true)
